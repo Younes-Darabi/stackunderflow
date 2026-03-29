@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
     'forum_app'
 ]
 
@@ -136,18 +137,21 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle'
     ],
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/day',
-        'user': '60/day',
-        'question': '4/day',
-        'question-get': '2/day',
-        'question-post': '2/day',
-        'question-put': '2/day',
-        'question-patch': '2/day',
-        'question-delete': '2/day',
-        'question-options': '5/day',
-    },
+    # 'DEFAULT_THROTTLE_RATES': {
+    #     'anon': '100/day',
+    #     'user': '60/day',
+    #     'question': '4/day',
+    #     'question-get': '2/day',
+    #     'question-post': '2/day',
+    #     'question-put': '2/day',
+    #     'question-patch': '2/day',
+    #     'question-delete': '2/day',
+    #     'question-options': '5/day',
+    # },
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
 }
