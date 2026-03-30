@@ -31,4 +31,6 @@ class Like(models.Model):
     class Meta:
         unique_together = ('user', 'question')
 
-
+class FileUpload(models.Model):
+    file = models.FileField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
